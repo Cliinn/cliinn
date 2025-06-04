@@ -38,9 +38,13 @@ const Hero = () => {
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         {/* Logo/Brand */}
         <div className="mb-8 animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold text-emerald-800 mb-2">
-            🌿 CLIINN
-          </h1>
+          <div className="flex justify-center mb-4">
+            <img 
+              src="/lovable-uploads/670f2f87-4073-4a5c-9b9a-74c9cf83715f.png" 
+              alt="CLIINN - Le Geste Clean pour la Planète" 
+              className="h-24 md:h-32 w-auto"
+            />
+          </div>
           <p className="text-xl text-emerald-600 font-medium">Le ménage réinventé</p>
         </div>
 
