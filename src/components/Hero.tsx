@@ -17,7 +17,7 @@ const Hero = () => {
     setIsSubmitted(true);
     toast({
       title: "Inscription réussie ! 🎉",
-      description: "Vous recevrez bientôt votre code -10% et votre guide écolo gratuit.",
+      description: "Vous recevrez bientôt votre code -10%.",
     });
     
     setTimeout(() => {
@@ -42,10 +42,9 @@ const Hero = () => {
             <img 
               src="/lovable-uploads/670f2f87-4073-4a5c-9b9a-74c9cf83715f.png" 
               alt="CLIINN - Le Geste Clean pour la Planète" 
-              className="h-24 md:h-32 w-auto"
+              className="h-32 md:h-48 w-auto"
             />
           </div>
-          <p className="text-xl text-emerald-600 font-medium">Le ménage réinventé</p>
         </div>
 
         {/* Main headline */}
@@ -55,7 +54,7 @@ const Hero = () => {
             <span className="text-emerald-600">écologiques & zéro plastique</span>
           </h2>
           <p className="text-xl md:text-2xl text-gray-600 mb-8">
-            Recevez <span className="font-bold text-emerald-600">-10%</span> à notre lancement + un guide écolo gratuit
+            Recevez <span className="font-bold text-emerald-600">-10%</span> à notre lancement
           </p>
         </div>
 
