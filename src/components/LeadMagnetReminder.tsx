@@ -17,7 +17,7 @@ const LeadMagnetReminder = () => {
     setIsSubmitted(true);
     toast({
       title: "Parfait ! 🎁",
-      description: "Votre code -10% et votre guide écolo arrivent dans votre boîte mail !",
+      description: "Votre code -25% et vos échantillons de test arrivent dans votre boîte mail !",
     });
     
     setTimeout(() => {
@@ -42,19 +42,19 @@ const LeadMagnetReminder = () => {
           
           <div className="mb-8">
             <div className="inline-flex items-center bg-emerald-100 rounded-full px-6 py-3 mb-4">
-              <span className="text-2xl font-bold text-emerald-600">-10%</span>
+              <span className="text-2xl font-bold text-emerald-600">-25%</span>
               <span className="ml-2 text-emerald-700 font-medium">sur votre première commande</span>
             </div>
             
             <p className="text-xl text-gray-600 mb-2">+</p>
             
             <div className="inline-flex items-center bg-blue-100 rounded-full px-6 py-3">
-              <span className="text-lg font-semibold text-blue-600">📖 Guide écolo PDF gratuit</span>
+              <span className="text-lg font-semibold text-blue-600">🧪 Échantillons gratuits pour tester</span>
             </div>
           </div>
           
           <p className="text-lg text-gray-600 mb-8">
-            20 pages de conseils pratiques pour une maison 100% écologique
+            Testez nos feuilles de détergent avant votre achat
           </p>
 
           {/* CTA Form */}

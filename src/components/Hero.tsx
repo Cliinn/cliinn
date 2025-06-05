@@ -17,7 +17,7 @@ const Hero = () => {
     setIsSubmitted(true);
     toast({
       title: "Inscription réussie ! 🎉",
-      description: "Vous recevrez bientôt votre code -10%.",
+      description: "Vous recevrez bientôt votre code -25% et vos échantillons de test.",
     });
     
     setTimeout(() => {
@@ -54,7 +54,7 @@ const Hero = () => {
             <span className="text-emerald-600">écologiques & zéro plastique</span>
           </h2>
           <p className="text-xl md:text-2xl text-gray-600 mb-8">
-            Recevez <span className="font-bold text-emerald-600">-10%</span> à notre lancement
+            Recevez <span className="font-bold text-emerald-600">-25%</span> à notre lancement + échantillons gratuits
           </p>
         </div>
 
@@ -81,7 +81,7 @@ const Hero = () => {
               ) : (
                 <>
                   <Mail className="w-5 h-5 mr-2" />
-                  Je m'inscris
+                  Je veux tester
                 </>
               )}
             </Button>
