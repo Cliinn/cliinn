@@ -2,8 +2,24 @@
 import { Droplets, Utensils, Sparkles, MapPin, Factory, Beaker, Building2, Users, Mail } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { useState } from 'react';
+import { useNewsletterSubscription } from '@/hooks/useNewsletterSubscription';
 
 const ProductRange = () => {
+  const [email, setEmail] = useState('');
+  const { subscribeToNewsletter, isSubmitting } = useNewsletterSubscription();
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || isSubmitting) return;
+    
+    const success = await subscribeToNewsletter(email, 'product_range');
+    
+    if (success) {
+      setEmail('');
+    }
+  };
+
   const products = [
     {
       icon: <Droplets className="w-8 h-8 text-blue-500" />,
@@ -151,10 +167,17 @@ const ProductRange = () => {
               <input 
                 type="email" 
                 placeholder="Votre adresse email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 px-4 py-3 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+                disabled={isSubmitting}
               />
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-6 py-3 rounded-lg whitespace-nowrap">
-                S'inscrire
+              <Button 
+                onClick={handleNewsletterSubmit}
+                className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-6 py-3 rounded-lg whitespace-nowrap"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Inscription..." : "S'inscrire"}
               </Button>
             </div>
             <p className="text-sm mt-4 opacity-75">
