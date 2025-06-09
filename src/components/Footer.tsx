@@ -9,12 +9,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
-              <div className="w-8 h-8 mr-2">
-                <svg viewBox="0 0 100 100" className="w-full h-full">
-                  <circle cx="50" cy="50" r="45" fill="#10b981" stroke="#065f46" strokeWidth="2"/>
-                  <text x="50" y="58" textAnchor="middle" fill="white" fontSize="20" fontWeight="bold">C</text>
-                </svg>
-              </div>
+              <Leaf className="w-8 h-8 text-emerald-400 mr-2" />
               <span className="text-2xl font-bold">CLIINN</span>
             </div>
             <p className="text-gray-400 mb-4">
@@ -50,7 +45,7 @@ const Footer = () => {
             <div className="space-y-2 text-gray-400">
               <div className="flex items-center">
                 <Mail className="w-4 h-4 mr-2" />
-                <span>contact@cliinn.com</span>
+                <span>hello@cliinn.fr</span>
               </div>
               <p className="text-sm">
                 Une question ? Nous répondons sous 24h !

@@ -1,9 +1,9 @@
+
 import { Droplets, Utensils, Sparkles, MapPin, Factory, Beaker, Building2, Users, Mail } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { useNewsletterSubscription } from '@/hooks/useNewsletterSubscription';
-import FranceMap from './FranceMap';
 
 const ProductRange = () => {
   const [formData, setFormData] = useState({
@@ -110,9 +110,6 @@ const ProductRange = () => {
             </Card>
           ))}
         </div>
-
-        {/* France Map Component */}
-        <FranceMap />
 
         {/* Projet 100% Français Section */}
         <div className="bg-white rounded-xl p-8 shadow-sm mb-12">
