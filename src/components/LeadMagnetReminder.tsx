@@ -6,23 +6,36 @@ import { Input } from '@/components/ui/input';
 import { useNewsletterSubscription } from '@/hooks/useNewsletterSubscription';
 
 const LeadMagnetReminder = () => {
-  const [email, setEmail] = useState('');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: ''
+  });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { subscribeToNewsletter, isSubmitting } = useNewsletterSubscription();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || isSubmitting) return;
+    if (!formData.email || isSubmitting) return;
     
-    const success = await subscribeToNewsletter(email, 'lead_magnet');
+    const success = await subscribeToNewsletter({
+      email: formData.email,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      source: 'lead_magnet'
+    });
     
     if (success) {
       setIsSubmitted(true);
       setTimeout(() => {
         setIsSubmitted(false);
-        setEmail('');
+        setFormData({ firstName: '', lastName: '', email: '' });
       }, 3000);
     }
+  };
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
   };
 
   return (
@@ -57,35 +70,55 @@ const LeadMagnetReminder = () => {
           </p>
 
           {/* CTA Form */}
-          <div className="max-w-md mx-auto">
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-              <div className="flex-1">
+          <div className="max-w-lg mx-auto">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <Input
-                  type="email"
-                  placeholder="Votre email pour recevoir votre bonus"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  type="text"
+                  placeholder="Prénom"
+                  value={formData.firstName}
+                  onChange={(e) => handleInputChange('firstName', e.target.value)}
                   className="h-14 text-lg border-2 border-emerald-200 focus:border-emerald-400"
-                  required
+                  disabled={isSubmitting}
+                />
+                <Input
+                  type="text"
+                  placeholder="Nom"
+                  value={formData.lastName}
+                  onChange={(e) => handleInputChange('lastName', e.target.value)}
+                  className="h-14 text-lg border-2 border-emerald-200 focus:border-emerald-400"
                   disabled={isSubmitting}
                 />
               </div>
-              <Button
-                type="submit"
-                className="h-14 px-8 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg transition-all duration-300 hover:scale-105"
-                disabled={isSubmitted || isSubmitting}
-              >
-                {isSubmitted ? (
-                  <CheckCircle className="w-6 h-6" />
-                ) : isSubmitting ? (
-                  "Inscription..."
-                ) : (
-                  <>
-                    <Gift className="w-5 h-5 mr-2" />
-                    Je veux mon bonus
-                  </>
-                )}
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex-1">
+                  <Input
+                    type="email"
+                    placeholder="Votre email pour recevoir votre bonus"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    className="h-14 text-lg border-2 border-emerald-200 focus:border-emerald-400"
+                    required
+                    disabled={isSubmitting}
+                  />
+                </div>
+                <Button
+                  type="submit"
+                  className="h-14 px-8 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg transition-all duration-300 hover:scale-105"
+                  disabled={isSubmitted || isSubmitting}
+                >
+                  {isSubmitted ? (
+                    <CheckCircle className="w-6 h-6" />
+                  ) : isSubmitting ? (
+                    "Inscription..."
+                  ) : (
+                    <>
+                      <Gift className="w-5 h-5 mr-2" />
+                      Je veux mon bonus
+                    </>
+                  )}
+                </Button>
+              </div>
             </form>
             
             <p className="text-sm text-gray-500 mt-4">

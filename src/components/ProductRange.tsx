@@ -6,18 +6,31 @@ import { useState } from 'react';
 import { useNewsletterSubscription } from '@/hooks/useNewsletterSubscription';
 
 const ProductRange = () => {
-  const [email, setEmail] = useState('');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: ''
+  });
   const { subscribeToNewsletter, isSubmitting } = useNewsletterSubscription();
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || isSubmitting) return;
+    if (!formData.email || isSubmitting) return;
     
-    const success = await subscribeToNewsletter(email, 'product_range');
+    const success = await subscribeToNewsletter({
+      email: formData.email,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      source: 'product_range'
+    });
     
     if (success) {
-      setEmail('');
+      setFormData({ firstName: '', lastName: '', email: '' });
     }
+  };
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
   };
 
   const products = [
@@ -163,22 +176,42 @@ const ProductRange = () => {
               Suivez nos aventures et soyez les premiers informés de nos innovations 
               en vous inscrivant à notre newsletter
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input 
-                type="email" 
-                placeholder="Votre adresse email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 px-4 py-3 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
-                disabled={isSubmitting}
-              />
-              <Button 
-                onClick={handleNewsletterSubmit}
-                className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-6 py-3 rounded-lg whitespace-nowrap"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Inscription..." : "S'inscrire"}
-              </Button>
+            <div className="space-y-4 max-w-lg mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <input 
+                  type="text" 
+                  placeholder="Prénom"
+                  value={formData.firstName}
+                  onChange={(e) => handleInputChange('firstName', e.target.value)}
+                  className="px-4 py-3 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+                  disabled={isSubmitting}
+                />
+                <input 
+                  type="text" 
+                  placeholder="Nom"
+                  value={formData.lastName}
+                  onChange={(e) => handleInputChange('lastName', e.target.value)}
+                  className="px-4 py-3 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+                  disabled={isSubmitting}
+                />
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <input 
+                  type="email" 
+                  placeholder="Votre adresse email"
+                  value={formData.email}
+                  onChange={(e) => handleInputChange('email', e.target.value)}
+                  className="flex-1 px-4 py-3 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+                  disabled={isSubmitting}
+                />
+                <Button 
+                  onClick={handleNewsletterSubmit}
+                  className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-6 py-3 rounded-lg whitespace-nowrap"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Inscription..." : "S'inscrire"}
+                </Button>
+              </div>
             </div>
             <p className="text-sm mt-4 opacity-75">
               Pas de spam, juste nos meilleures actualités et offres exclusives
