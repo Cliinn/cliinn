@@ -1,4 +1,3 @@
-
 import { Droplets, Utensils, Sparkles, MapPin, Factory, Beaker, Building2, Users, Mail } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -38,19 +37,25 @@ const ProductRange = () => {
       icon: <Droplets className="w-8 h-8 text-blue-500" />,
       title: "Lessive",
       description: "Feuilles de lessive ultra-efficaces pour tous vos textiles. Formule concentrée qui respecte les fibres et l'environnement.",
-      features: ["100% biodégradable", "Hypoallergénique", "Parfum naturel"]
+      features: ["100% biodégradable", "Hypoallergénique", "Parfum naturel"],
+      image: "/lovable-uploads/47d0548f-783a-4040-a07d-55a987d890ed.png",
+      bgClass: "animate-color-shift"
     },
     {
       icon: <Utensils className="w-8 h-8 text-green-500" />,
       title: "Vaisselle",
       description: "Feuilles détergentes pour une vaisselle impeccable. Dégraisse efficacement tout en préservant vos mains.",
-      features: ["Dégraissage puissant", "Testée dermatologiquement", "Sans résidus"]
+      features: ["Dégraissage puissant", "Testée dermatologiquement", "Sans résidus"],
+      image: "/lovable-uploads/07bf3260-21b9-44e6-87a1-66c97b8a1b0f.png",
+      bgClass: "bg-gradient-to-br from-green-100 to-emerald-100"
     },
     {
       icon: <Sparkles className="w-8 h-8 text-purple-500" />,
       title: "Multi-usage",
       description: "Solution polyvalente pour nettoyer toutes les surfaces de votre maison. Un seul produit pour tout nettoyer.",
-      features: ["Toutes surfaces", "Désinfectant naturel", "Anti-bactérien"]
+      features: ["Toutes surfaces", "Désinfectant naturel", "Anti-bactérien"],
+      image: "/lovable-uploads/178959c5-5538-4f99-93e5-443d486bf835.png",
+      bgClass: "bg-gradient-to-br from-cyan-100 to-blue-100"
     }
   ];
 
@@ -83,7 +88,16 @@ const ProductRange = () => {
 
         <div className="grid md:grid-cols-3 gap-8 mb-20">
           {products.map((product, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow duration-300 border-0 shadow-md">
+            <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 shadow-md overflow-hidden">
+              {/* Product Image with animated/gradient background */}
+              <div className={`relative h-48 ${product.bgClass} flex items-center justify-center`}>
+                <img 
+                  src={product.image} 
+                  alt={`Feuille ${product.title.toLowerCase()} Cliinn`}
+                  className="h-32 w-auto object-contain drop-shadow-lg"
+                />
+              </div>
+              
               <CardHeader className="text-center pb-4">
                 <div className="flex justify-center mb-4">
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm">
@@ -94,6 +108,7 @@ const ProductRange = () => {
                   {product.title}
                 </CardTitle>
               </CardHeader>
+              
               <CardContent>
                 <CardDescription className="text-gray-600 mb-4 text-center">
                   {product.description}
