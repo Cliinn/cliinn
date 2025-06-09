@@ -15,7 +15,7 @@ const ProductShowcase = () => {
           {/* Product Visual */}
           <div className="relative">
             <div className="relative mx-auto w-80 h-80 rounded-full overflow-hidden shadow-2xl">
-              <img src="/lovable-uploads/42cab44f-2061-470e-84e1-ea7cb329a04a.png" alt="Feuille de lessive Cliinn - éco-responsable" className="w-full h-full object-cover" />
+              <img alt="Feuille de lessive Cliinn - éco-responsable" className="w-full h-full object-cover" src="https://ibb.co/Y74Fx9Cb" />
               
               {/* Floating animation overlay */}
               {isAnimating && <div className="absolute inset-0 bg-white bg-opacity-20 rounded-full animate-pulse"></div>}
