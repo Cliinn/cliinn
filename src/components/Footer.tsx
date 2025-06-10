@@ -60,8 +60,12 @@ const Footer = () => {
             © 2024 CLIINN. Tous droits réservés. Made with 💚 for the planet.
           </p>
           <div className="flex items-center mt-4 md:mt-0">
-            <span className="text-emerald-400 mr-2">🇫🇷</span>
-            <span className="text-sm text-gray-400">Fabriqué en France</span>
+            <img 
+              src="/lovable-uploads/6f167489-efd9-4abc-b445-13027cd0cc26.png" 
+              alt="Made in France" 
+              className="w-12 h-8 mr-3"
+            />
+            <span className="text-sm text-gray-400">Made in France avec fierté depuis la Bourgogne Franche-Comté</span>
           </div>
         </div>
       </div>
