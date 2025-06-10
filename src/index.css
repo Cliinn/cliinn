@@ -14,19 +14,6 @@
   }
 }
 
-/* Animation colorée pour la feuille de lessive */
-@keyframes colorShift {
-  0% { background: linear-gradient(135deg, #dbeafe, #e0e7ff, #fce7f3); }
-  25% { background: linear-gradient(135deg, #fce7f3, #dbeafe, #f0f9ff); }
-  50% { background: linear-gradient(135deg, #f0f9ff, #e0e7ff, #dbeafe); }
-  75% { background: linear-gradient(135deg, #e0e7ff, #fce7f3, #f0f9ff); }
-  100% { background: linear-gradient(135deg, #dbeafe, #e0e7ff, #fce7f3); }
-}
-
-.animate-color-shift {
-  animation: colorShift 4s ease-in-out infinite;
-}
-
 :root {
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;

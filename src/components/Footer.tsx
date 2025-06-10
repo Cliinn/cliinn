@@ -45,7 +45,7 @@ const Footer = () => {
             <div className="space-y-2 text-gray-400">
               <div className="flex items-center">
                 <Mail className="w-4 h-4 mr-2" />
-                <span>hello@cliinn.fr</span>
+                <span>contact@cliinn.com</span>
               </div>
               <p className="text-sm">
                 Une question ? Nous répondons sous 24h !
