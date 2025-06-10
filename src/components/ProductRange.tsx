@@ -190,6 +190,11 @@ const ProductRange = () => {
                 <span className="font-bold text-blue-800 block">Made in France</span>
                 <span className="text-sm text-blue-600">Avec fierté depuis la Bourgogne</span>
               </div>
+              <img 
+                src="/lovable-uploads/6f167489-efd9-4abc-b445-13027cd0cc26.png" 
+                alt="Made in France" 
+                className="w-12 h-8 ml-3"
+              />
             </div>
           </div>
         </div>
