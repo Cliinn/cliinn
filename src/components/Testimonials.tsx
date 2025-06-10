@@ -34,7 +34,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <div className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <div className="py-16 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
