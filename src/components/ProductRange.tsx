@@ -40,7 +40,8 @@ const ProductRange = () => {
       description: "Feuilles de lessive ultra-efficaces pour tous vos textiles. Formule concentrée qui respecte les fibres et l'environnement.",
       features: ["100% biodégradable", "Hypoallergénique", "Parfum naturel"],
       image: "/lovable-uploads/47d0548f-783a-4040-a07d-55a987d890ed.png",
-      bgClass: "bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100"
+      bgClass: "bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100",
+      watermarkImage: "/lovable-uploads/78c8a418-97b3-4309-a748-309afb57a66f.png"
     },
     {
       icon: <Utensils className="w-6 h-6 text-green-500" />,
@@ -48,7 +49,8 @@ const ProductRange = () => {
       description: "Feuilles détergentes pour une vaisselle impeccable. Dégraisse efficacement tout en préservant vos mains.",
       features: ["Dégraissage puissant", "Testée dermatologiquement", "Sans résidus"],
       image: "/lovable-uploads/07bf3260-21b9-44e6-87a1-66c97b8a1b0f.png",
-      bgClass: "bg-gradient-to-br from-green-100 to-emerald-100"
+      bgClass: "bg-gradient-to-br from-green-100 to-emerald-100",
+      watermarkImage: "/lovable-uploads/fa00225a-c6ac-41bc-8150-3b48e7bb7727.png"
     },
     {
       icon: <Sparkles className="w-6 h-6 text-purple-500" />,
@@ -56,7 +58,8 @@ const ProductRange = () => {
       description: "Solution polyvalente pour nettoyer toutes les surfaces de votre maison. Un seul produit pour tout nettoyer.",
       features: ["Toutes surfaces", "Désinfectant naturel", "Anti-bactérien"],
       image: "/lovable-uploads/178959c5-5538-4f99-93e5-443d486bf835.png",
-      bgClass: "bg-gradient-to-br from-cyan-100 to-blue-100"
+      bgClass: "bg-gradient-to-br from-cyan-100 to-blue-100",
+      watermarkImage: "/lovable-uploads/eda37cdf-f2e7-4dbf-9aa3-76b51cc90f1d.png"
     }
   ];
 
@@ -90,12 +93,21 @@ const ProductRange = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-20">
           {products.map((product, index) => (
             <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 shadow-md overflow-hidden">
-              {/* Product Image with gradient background - Full height */}
-              <div className={`relative h-80 ${product.bgClass} flex items-center justify-center`}>
+              {/* Product Image with gradient background and watermark */}
+              <div className={`relative h-80 ${product.bgClass} flex items-center justify-center overflow-hidden`}>
+                {/* Watermark image */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <img 
+                    src={product.watermarkImage} 
+                    alt={`Background ${product.title.toLowerCase()}`}
+                    className="w-full h-full object-cover opacity-20"
+                  />
+                </div>
+                {/* Product sheet image */}
                 <img 
                   src={product.image} 
                   alt={`Feuille ${product.title.toLowerCase()} Cliinn`}
-                  className="h-64 w-auto object-contain drop-shadow-lg"
+                  className={`relative z-10 ${product.title === 'Lessive' ? 'h-64' : 'h-56'} w-auto object-contain drop-shadow-lg`}
                 />
               </div>
               
