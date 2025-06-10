@@ -1,3 +1,4 @@
+
 import { Droplets, Utensils, Sparkles, MapPin, Factory, Beaker, Building2, Users, Mail } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -80,7 +81,7 @@ const ProductRange = () => {
     <div className="py-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-6">
         {/* Product Range Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Notre gamme complète
           </h2>
@@ -89,7 +90,7 @@ const ProductRange = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
           {products.map((product, index) => (
             <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 shadow-md overflow-hidden">
               {/* Product Image with gradient background and watermark */}
@@ -137,27 +138,6 @@ const ProductRange = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Certification Section with Made in France image */}
-        <div className="text-center mb-12">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-                Certifié & Approuvé
-              </h3>
-              <p className="text-lg text-gray-600 max-w-2xl">
-                Nos produits respectent les plus hauts standards de qualité et d'écologie
-              </p>
-            </div>
-            <div className="flex-shrink-0">
-              <img 
-                src="/lovable-uploads/4fcca843-47c5-49b8-a006-0da67d410a5f.png" 
-                alt="Made in France"
-                className="h-20 w-auto"
-              />
-            </div>
-          </div>
         </div>
 
         {/* Projet 100% Français Section */}

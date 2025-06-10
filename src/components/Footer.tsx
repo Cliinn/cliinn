@@ -1,6 +1,5 @@
 
 import { Leaf, Mail, Instagram, Facebook, Twitter } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -33,10 +32,10 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Légal</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><Link to="/mentions-legales" className="hover:text-emerald-400 transition-colors">Mentions légales</Link></li>
-              <li><Link to="/politique-confidentialite" className="hover:text-emerald-400 transition-colors">Politique de confidentialité</Link></li>
-              <li><Link to="/cgv" className="hover:text-emerald-400 transition-colors">CGV</Link></li>
-              <li><Link to="/rgpd" className="hover:text-emerald-400 transition-colors">RGPD</Link></li>
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">Mentions légales</a></li>
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">Politique de confidentialité</a></li>
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">CGV</a></li>
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">RGPD</a></li>
             </ul>
           </div>
 
