@@ -182,18 +182,20 @@ const ProductRange = () => {
             ))}
           </div>
 
-          {/* Made in France Badge */}
+          {/* Made in France Badge avec image */}
           <div className="text-center">
-            <div className="inline-flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full">
-              <span className="text-3xl">🇫🇷</span>
-              <div className="text-left">
-                <span className="font-bold text-blue-800 block">Made in France</span>
-                <span className="text-sm text-blue-600">Avec fierté depuis la Bourgogne</span>
+            <div className="flex items-center justify-center space-x-6">
+              <div className="inline-flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full">
+                <span className="text-3xl">🇫🇷</span>
+                <div className="text-left">
+                  <span className="font-bold text-blue-800 block">Made in France</span>
+                  <span className="text-sm text-blue-600">Avec fierté depuis la Bourgogne</span>
+                </div>
               </div>
               <img 
                 src="/lovable-uploads/6f167489-efd9-4abc-b445-13027cd0cc26.png" 
                 alt="Made in France" 
-                className="w-12 h-8 ml-3"
+                className="w-20 h-14"
               />
             </div>
           </div>
