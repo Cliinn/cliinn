@@ -1,5 +1,5 @@
 
-import { Leaf, Mail, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Mail, Instagram, Facebook, Twitter } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,7 +9,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
-              <Leaf className="w-8 h-8 text-emerald-400 mr-2" />
+              <img 
+                src="/lovable-uploads/0595006b-b556-48db-b223-a1241bc14be4.png" 
+                alt="CLIINN Logo" 
+                className="w-8 h-8 mr-2"
+              />
               <span className="text-2xl font-bold">CLIINN</span>
             </div>
             <p className="text-gray-400 mb-4">
