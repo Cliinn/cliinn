@@ -27,7 +27,7 @@ serve(async (req) => {
     // Générer un OTP de 6 chiffres
     const otp = Math.floor(100000 + Math.random() * 900000).toString()
     
-    // Stocker l'OTP dans la base de données avec une expiration
+    // Stocker l'OTP dans la base de données avec une expiration de 15 minutes (recommandé)
     const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2')
     const supabase = createClient(
       Deno.env.get('SUPABASE_URL') ?? '',
@@ -40,13 +40,13 @@ serve(async (req) => {
       .delete()
       .eq('email', email.toLowerCase())
 
-    // Insérer le nouvel OTP
+    // Insérer le nouvel OTP avec expiration de 15 minutes
     const { error: insertError } = await supabase
       .from('otp_codes')
       .insert({
         email: email.toLowerCase(),
         code: otp,
-        expires_at: new Date(Date.now() + 10 * 60 * 1000).toISOString() // 10 minutes
+        expires_at: new Date(Date.now() + 15 * 60 * 1000).toISOString() // 15 minutes
       })
 
     if (insertError) {
@@ -66,7 +66,7 @@ serve(async (req) => {
         <body>
           <h2>Votre code de vérification CLIINN</h2>
           <p>Votre code de vérification est : <strong>${otp}</strong></p>
-          <p>Ce code expire dans 10 minutes.</p>
+          <p>Ce code expire dans 15 minutes.</p>
           <p>Si vous n'avez pas demandé ce code, ignorez cet email.</p>
         </body>
       </html>
