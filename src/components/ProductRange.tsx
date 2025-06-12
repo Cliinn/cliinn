@@ -1,3 +1,4 @@
+
 import { Droplets, Utensils, Sparkles, MapPin, Factory, Beaker, Building2, Users, Mail } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -38,7 +39,7 @@ const ProductRange = () => {
       title: "Lessive",
       description: "Feuilles de lessive ultra-efficaces pour tous vos textiles. Formule concentrée qui respecte les fibres et l'environnement.",
       features: ["100% biodégradable", "Hypoallergénique", "Parfum naturel"],
-      image: "/lovable-uploads/ca695b74-583b-4f07-b998-9d88223653ce.png",
+      image: "/lovable-uploads/47d0548f-783a-4040-a07d-55a987d890ed.png",
       bgClass: "bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100",
       watermarkImage: "/lovable-uploads/78c8a418-97b3-4309-a748-309afb57a66f.png"
     },
@@ -47,7 +48,7 @@ const ProductRange = () => {
       title: "Vaisselle",
       description: "Feuilles détergentes pour une vaisselle impeccable. Dégraisse efficacement tout en préservant vos mains.",
       features: ["Dégraissage puissant", "Testée dermatologiquement", "Sans résidus"],
-      image: "/lovable-uploads/dd64c339-8f99-4859-bc75-455f67ab6b72.png",
+      image: "/lovable-uploads/07bf3260-21b9-44e6-87a1-66c97b8a1b0f.png",
       bgClass: "bg-gradient-to-br from-green-100 to-emerald-100",
       watermarkImage: "/lovable-uploads/fa00225a-c6ac-41bc-8150-3b48e7bb7727.png"
     },
@@ -56,7 +57,7 @@ const ProductRange = () => {
       title: "Multi-usage",
       description: "Solution polyvalente pour nettoyer toutes les surfaces de votre maison. Un seul produit pour tout nettoyer.",
       features: ["Toutes surfaces", "Désinfectant naturel", "Anti-bactérien"],
-      image: "/lovable-uploads/6afbb2e1-735c-466c-a4be-098c9425539f.png",
+      image: "/lovable-uploads/178959c5-5538-4f99-93e5-443d486bf835.png",
       bgClass: "bg-gradient-to-br from-cyan-100 to-blue-100",
       watermarkImage: "/lovable-uploads/eda37cdf-f2e7-4dbf-9aa3-76b51cc90f1d.png"
     }
@@ -106,7 +107,7 @@ const ProductRange = () => {
                 <img 
                   src={product.image} 
                   alt={`Feuille ${product.title.toLowerCase()} Cliinn`}
-                  className="relative z-10 h-56 w-auto object-contain drop-shadow-lg"
+                  className={`relative z-10 ${product.title === 'Lessive' ? 'h-64' : 'h-56'} w-auto object-contain drop-shadow-lg`}
                 />
               </div>
               
@@ -147,7 +148,7 @@ const ProductRange = () => {
             </h3>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto">
               Originaires de Bourgogne-Franche-Comté, nous développons nos solutions entre l'Île-de-France 
-              et la Bourgogne-Franche-Compte pour garantir proximité et qualité.
+              et la Bourgogne-Franche-Comté pour garantir proximité et qualité.
             </p>
           </div>
 

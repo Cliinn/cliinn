@@ -1,3 +1,4 @@
+
 import { Mail, Instagram, Facebook, Twitter } from 'lucide-react';
 
 const Footer = () => {
@@ -19,7 +20,7 @@ const Footer = () => {
               Révolutionnons ensemble le ménage avec des solutions 100% écologiques et zéro plastique.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.instagram.com/cliinn.eco" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors">
+              <a href="#" className="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
               <a href="#" className="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors">
